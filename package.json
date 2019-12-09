@@ -1,0 +1,36 @@
+{
+  "name": "ts-react-test",
+  "version": "0.0.1",
+  "description": "Testing",
+  "main": "src/testing.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihansson/ts-react-test.git"
+  },
+  "scripts": {
+	"build": "rollup -c",
+	"watch": "rollup -cw"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "3d",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ihansson/ts-react-test/issues"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.27.9",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-watch": "^4.3.1",
+    "typescript": "^3.7.3",
+    "typings": "^2.1.1"
+  }
+}
