@@ -28980,13 +28980,38 @@
 
 	var slicedToArray = _slicedToArray;
 
+	function useWindowWidth() {
+	  var _useState = react_18(window.innerWidth),
+	      _useState2 = slicedToArray(_useState, 2),
+	      width = _useState2[0],
+	      setWidth = _useState2[1];
+
+	  react_11(function () {
+	    console.log('test');
+
+	    var handleResize = function handleResize() {
+	      return setWidth(window.innerWidth);
+	    };
+
+	    window.addEventListener('resize', handleResize);
+	    return function () {
+	      window.removeEventListener('resize', handleResize);
+	    };
+	  }, []);
+	  return width;
+	}
+
 	function App() {
 	  var _useState = react_18(5),
 	      _useState2 = slicedToArray(_useState, 2),
 	      count = _useState2[0],
 	      setCount = _useState2[1];
 
-	  return react.createElement("div", null, "Test ", count, react.createElement("button", {
+	  var width = useWindowWidth();
+	  react_11(function () {
+	    document.title = count;
+	  }, [count]);
+	  return react.createElement("div", null, react.createElement("div", null, "Test ", count), react.createElement("div", null, react.createElement("button", {
 	    onClick: function onClick() {
 	      setCount(count - 1);
 	    }
@@ -28994,7 +29019,7 @@
 	    onClick: function onClick() {
 	      setCount(count + 1);
 	    }
-	  }, "Add"));
+	  }, "Add")), "Window width: ", width);
 	}
 
 	reactDom.render(react.createElement(App, null), document.getElementById('app'));
