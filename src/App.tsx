@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import useWindowWidth from './useWindowWidth';
+import { ThemeContext } from './ThemeContext';
 
 export default function App() {
 	const [count, setCount]: [number, (x: number) => void] = useState(5);
 	const width: number = useWindowWidth();
+	const { color, background } = useContext(ThemeContext);
 
 	useEffect(() => {
 		document.title = count;
 	}, [count])
 
-	return <div>
+	return <div style={{ color, background }}>
 		<div>
 			Test {count}
 		</div>

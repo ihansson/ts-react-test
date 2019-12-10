@@ -29001,6 +29001,11 @@
 	  return width;
 	}
 
+	var ThemeContext = react_5({
+	  color: 'blue',
+	  background: 'red'
+	});
+
 	function App() {
 	  var _useState = react_18(5),
 	      _useState2 = slicedToArray(_useState, 2),
@@ -29008,10 +29013,20 @@
 	      setCount = _useState2[1];
 
 	  var width = useWindowWidth();
+
+	  var _useContext = react_10(ThemeContext),
+	      color = _useContext.color,
+	      background = _useContext.background;
+
 	  react_11(function () {
 	    document.title = count;
 	  }, [count]);
-	  return react.createElement("div", null, react.createElement("div", null, "Test ", count), react.createElement("div", null, react.createElement("button", {
+	  return react.createElement("div", {
+	    style: {
+	      color: color,
+	      background: background
+	    }
+	  }, react.createElement("div", null, "Test ", count), react.createElement("div", null, react.createElement("button", {
 	    onClick: function onClick() {
 	      setCount(count - 1);
 	    }
