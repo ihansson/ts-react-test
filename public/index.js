@@ -29002,8 +29002,8 @@
 	}
 
 	var ThemeContext = react_5({
-	  color: 'blue',
-	  background: 'red'
+	  color: 'teal',
+	  background: '#eee'
 	});
 
 	function App() {
@@ -29034,7 +29034,13 @@
 	    onClick: function onClick() {
 	      setCount(count + 1);
 	    }
-	  }, "Add")), "Window width: ", width);
+	  }, "Add")), "Window width: ", width, react.createElement("div", null, react.createElement(Test, null)));
+	}
+
+	function Test() {
+	  return react.createElement(react_22, {
+	    fallback: react.createElement("div", null, "Loading...")
+	  }, "Test");
 	}
 
 	reactDom.render(react.createElement(App, null), document.getElementById('app'));

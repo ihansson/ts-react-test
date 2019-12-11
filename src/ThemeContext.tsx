@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
 export const ThemeContext = createContext({
-	color: 'blue',
-	background: 'red'
+	color: 'teal',
+	background: '#eee'
 });

@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Suspense } from 'react';
 import useWindowWidth from './useWindowWidth';
 import { ThemeContext } from './ThemeContext';
+const SuspenseComp = React.lazy(() => import('./SuspenseComp'));
 
 export default function App() {
 	const [count, setCount]: [number, (x: number) => void] = useState(5);
@@ -20,5 +21,15 @@ export default function App() {
 			<button onClick={() => { setCount(count+1) }}>Add</button>
 		</div>
 		Window width: {width}
+		<div>
+			<Test />
+		</div>
 	</div>;
+}
+
+
+function Test(){
+	return <Suspense fallback={<div>Loading...</div>}>
+		<SuspenseComp />
+	</Suspense>;
 }
